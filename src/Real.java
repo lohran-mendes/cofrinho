@@ -11,7 +11,6 @@ public class Real extends Moeda {
 
     @Override
     public double info() {
-        System.out.println("O valor acumulado em Real é igual a: " + valor);
         return valor;
     }
 }

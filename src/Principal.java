@@ -20,7 +20,7 @@
             while (opcaoEscolhida != 0) {
             System.out.println("\nCofrinho:");
             textoInicial();
-            opcaoEscolhida = entrada.nextInt();
+            opcaoEscolhida = lerInteiro(entrada);
 
             switch (opcaoEscolhida){
                 case 0:
@@ -29,24 +29,24 @@
 
                 case 1:
                     textoTipoMoeda();
-                    entradaDoTipoDeMoeda = entrada.nextInt();
+                    entradaDoTipoDeMoeda = lerInteiro(entrada);
                     verificaEntrada(entradaDoTipoDeMoeda, entrada);
                     if(entradaDoTipoDeMoeda != 0 ){
                     tipoMoeda = converteEntradaEmTipo(entradaDoTipoDeMoeda);
                     System.out.println("\nQual o valor a ser inserido?");
-                    valorMoeda = entrada.nextDouble();
+                    valorMoeda = lerDouble(entrada);;
                     cofrinho.adicionar(valorMoeda, tipoMoeda);
                     }
                     break;
 
                 case 2:
                     textoTipoMoeda();
-                    entradaDoTipoDeMoeda = entrada.nextInt();
+                    entradaDoTipoDeMoeda = lerInteiro(entrada);
                     verificaEntrada(entradaDoTipoDeMoeda, entrada);
                     if(entradaDoTipoDeMoeda != 0 ){
                     tipoMoeda = converteEntradaEmTipo(entradaDoTipoDeMoeda);
                     System.out.println("\nQual o valor a ser removido?");
-                    valorMoeda = entrada.nextDouble();
+                    valorMoeda = lerDouble(entrada);
                     cofrinho.remover(valorMoeda, tipoMoeda);
                     }
                     break;
@@ -64,12 +64,33 @@
             }
             }
         }
+        static int lerInteiro(Scanner entrada) {
+            while (true) {
+                try {
+                    return entrada.nextInt();
+                } catch (Exception e) {
+                    System.out.println("\nO valor inserido deve ser um valor inteiro");
+                    entrada.nextLine();
+                }
+            }
+        }
+
+        static double lerDouble(Scanner entrada) {
+            while (true) {
+                try {
+                    return entrada.nextDouble();
+                } catch (Exception e) {
+                    System.out.println("\nO valor inserido deve ser um valor double");
+                    entrada.nextLine();
+                }
+            }
+        }
 
         static void verificaEntrada(int valor, Scanner entrada) {
             while(valor != 1 && valor != 2 && valor != 3 && valor != 0){
                 System.out.println("Valor inválido, tente novamente!");
                 textoTipoMoeda();
-                valor = entrada.nextInt();
+                valor = lerInteiro(entrada);
             }
 
         }
@@ -91,9 +112,9 @@
         }
         static tipoMoedaEnum converteEntradaEmTipo(int tipoMoeda){
             return switch (tipoMoeda) {
-                case 1, 0 -> tipoMoedaEnum.REAL;  // Retorna o valor do enum
-                case 2 -> tipoMoedaEnum.DOLAR; // Retorna o valor do enum
-                case 3 -> tipoMoedaEnum.EURO;  // Retorna o valor do enum
+                case 1, 0 -> tipoMoedaEnum.REAL;
+                case 2 -> tipoMoedaEnum.DOLAR;
+                case 3 -> tipoMoedaEnum.EURO;
                 default -> throw new IllegalArgumentException("Valor inválido para tipo de moeda.");
             };
         }
