@@ -1,7 +1,5 @@
 public class Euro extends Moeda {
 
-    String tipo = "Euro";
-
     public Euro(double valor) {
         super(valor, "Euro");
     }
@@ -18,10 +16,9 @@ public class Euro extends Moeda {
         return valor;
     }
 
-    public static double cotacao(){
+    public static void cotacao(){
         double cotacaoAtual = new ApiCotacao().getCotacao(Principal.tipoMoedaEnum.EURO);
         double cotacao = cotacaoAtual != 0? cotacaoAtual:  6.20;
         System.out.println("Um Euro atualmente equivale a: R$" + cotacao);
-        return cotacao;
     }
 }

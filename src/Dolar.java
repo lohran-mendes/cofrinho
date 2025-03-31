@@ -1,7 +1,5 @@
 public class Dolar extends Moeda {
 
-    String tipo = "Dólar";
-
     public Dolar(double valor) {
         super(valor, "Dolar");
     }
@@ -18,10 +16,9 @@ public class Dolar extends Moeda {
         return valor;
     }
 
-    public static double cotacao(){
+    public static void cotacao(){
         double cotacaoAtual = new ApiCotacao().getCotacao(Principal.tipoMoedaEnum.DOLAR);
         double cotacao = cotacaoAtual != 0? cotacaoAtual:  5.80;
         System.out.println("\nUm Dólar atualmente equivale a: R$" + cotacao);
-        return cotacao;
     }
 }

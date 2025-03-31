@@ -25,6 +25,7 @@
             switch (opcaoEscolhida){
                 case 0:
                     System.out.println("\nEncerrando o programa...");
+                    entrada.close();
                     break;
 
                 case 1:
@@ -34,7 +35,7 @@
                     if(entradaDoTipoDeMoeda != 0 ){
                     tipoMoeda = converteEntradaEmTipo(entradaDoTipoDeMoeda);
                     System.out.println("\nQual o valor a ser inserido?");
-                    valorMoeda = lerDouble(entrada);;
+                    valorMoeda = lerDouble(entrada);
                     cofrinho.adicionar(valorMoeda, tipoMoeda);
                     }
                     break;
