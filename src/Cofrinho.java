@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Cofrinho {
     public final ArrayList<Moeda> listaMoedas = new ArrayList<>();
 
+    // adiciona uma moeda e o seu valor para a lista de moedas "cofrinho"
     public void adicionar(double valor, Principal.tipoMoedaEnum tipoMoeda){
         switch (tipoMoeda){
             case REAL:
@@ -16,7 +17,7 @@ public class Cofrinho {
                 break;
         }
     }
-
+    // remove uma moeda e o seu valor da lista de moedas "cofrinho"
     public void remover(double valor, Principal.tipoMoedaEnum tipoMoeda){
         switch (tipoMoeda){
             case REAL:
@@ -36,12 +37,14 @@ public class Cofrinho {
                 break;
         }
     }
+    // lista as moedas presentes na lista
     public void listagemMoedas(){
         System.out.println("\nListando moedas:");
         for (Moeda moeda : listaMoedas) {
         System.out.println(moeda.toString());
         }
     }
+    // mostra o valor total das moedas convertidas em reais
     public void totalConvertido(){
         double valorConvertido = 0;
         for(Moeda moeda : listaMoedas) {

@@ -1,5 +1,9 @@
 public class Euro extends Moeda {
 
+    //  Aqui eu extendo a minha classe moeda e ainda uso o metodo cotacao para puxar o valor atual do euro em reais
+    // caso não consigo pegar o valor atual eu deixo um valor pré definido que seria parecido com o valor.
+    // também uso o converter para que cada valor instanciado possa ser convertido para real.
+
     public Euro(double valor) {
         super(valor, "Euro");
     }

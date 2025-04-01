@@ -10,6 +10,10 @@ import java.util.Map;
 
 public class ApiCotacao {
 
+    // essa classe foi feita para chamar uma api que me retorna o valor atual de certas moedas como o do Euro e o
+    // Dolar em real, eu a uso para quando fazer a conversão eu consiga converter para um valor real e atual, caso
+    // ela não funcione por algum motivo os valores das moedas são devolvidos com um valor estimado
+
     public double getCotacao(Principal.tipoMoedaEnum tipoMoeda) {
         double cotacaoDaMoedaBuscada = 0;
         String  moedaBuscada = switch (tipoMoeda) {

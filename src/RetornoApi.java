@@ -1,5 +1,8 @@
 import com.google.gson.annotations.SerializedName;
 
+// Aqui eu defino o que vai vir no retorno da apiCotacao para que eu possa fazer o tratamento correto nela e consiga trazer comigo
+// apenas o bid que seeria o valor atual da moeda selecionada, tbm altero o toString caso eu precise mexer com tais dados.
+
 public class RetornoApi {
     public String code;
     public String codein;

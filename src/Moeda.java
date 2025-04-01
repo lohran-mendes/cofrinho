@@ -1,5 +1,7 @@
 import java.util.Objects;
 
+// Aqui eu crio uma classe abstrata moeda para usar em outras classes e sobrescrevo metodos que eu terei que usar mais a frente.
+
 public abstract class Moeda {
     double valor;
     String tipo;

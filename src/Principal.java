@@ -17,11 +17,14 @@
             Cofrinho cofrinho = new Cofrinho();
             Scanner entrada = new Scanner(System.in);
 
+            // Aqui eu faço um loop para ter certeza que vou continuar printando as opções no console caso usuario não
+            // peça para que o programa seja encerrado
             while (opcaoEscolhida != 0) {
             System.out.println("\nCofrinho:");
             textoInicial();
             opcaoEscolhida = lerInteiro(entrada);
 
+            // faço a verificação da opção escolhida para fazer o que o usuário pede
             switch (opcaoEscolhida){
                 case 0:
                     System.out.println("\nEncerrando o programa...");
@@ -29,6 +32,8 @@
                     break;
 
                 case 1:
+
+                    // Adiciono um valor ao cofrinho de acordo com o usuario
                     textoTipoMoeda();
                     entradaDoTipoDeMoeda = lerInteiro(entrada);
                     verificaEntrada(entradaDoTipoDeMoeda, entrada);
@@ -41,6 +46,8 @@
                     break;
 
                 case 2:
+
+                    // Removo um valor ao cofrinho de acordo com o usuario
                     textoTipoMoeda();
                     entradaDoTipoDeMoeda = lerInteiro(entrada);
                     verificaEntrada(entradaDoTipoDeMoeda, entrada);
@@ -53,10 +60,14 @@
                     break;
 
                 case 3:
+
+                    // Listo os valores do cofrinho para o usuario
                     cofrinho.listagemMoedas();
                     break;
 
                 case 4:
+
+                    // Listo os valores do cofrinho já convertido em reais para o usuario
                     cofrinho.totalConvertido();
                     break;
 
@@ -65,6 +76,8 @@
             }
             }
         }
+
+        // Leio os valores e verifico se sao do tipo inteiro
         static int lerInteiro(Scanner entrada) {
             while (true) {
                 try {
@@ -76,6 +89,7 @@
             }
         }
 
+        // Leio os valores e verifico se sao do tipo double
         static double lerDouble(Scanner entrada) {
             while (true) {
                 try {
@@ -87,6 +101,7 @@
             }
         }
 
+        // verifico se a entrada do usuário está entre as disponíveis
         static void verificaEntrada(int valor, Scanner entrada) {
             while(valor != 1 && valor != 2 && valor != 3 && valor != 0){
                 System.out.println("Valor inválido, tente novamente!");
@@ -95,6 +110,7 @@
             }
 
         }
+        // printo o texto de escolha para o usuário
         static void textoTipoMoeda(){
             System.out.println("""
                             \nQual o tipo da moeda?
@@ -103,6 +119,7 @@
                             3 - Euro
                             0 - Cancelar""");
             }
+            // printo o texto de escolha para o usuário
         static void textoInicial(){
             System.out.println("""
                     1-Adicionar Moeda
@@ -111,6 +128,7 @@
                     4-Calcular total convertido para Real
                     0-Encerrar""");
         }
+        // converto o tipo de moeda pra enum para que o meu codigo fique mais simples facil de ler.
         static tipoMoedaEnum converteEntradaEmTipo(int tipoMoeda){
             return switch (tipoMoeda) {
                 case 1, 0 -> tipoMoedaEnum.REAL;
